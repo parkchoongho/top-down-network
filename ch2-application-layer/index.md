@@ -15,8 +15,11 @@ HTTP는 Application Layer에서의 protocol로써 기능한다. 서로 다른 ho
 **Reliable Data Transfer**</br>
 전송된 패킷은 네트워크 상에서 유실될 위험을 안고  있다. 만약 카카오 뱅크에서 토스 계좌로 송금하는데 데이터가 유실되었다고 가정해보자. 정말 끔찍한 일이 아닐 수 없다. 따라서 다른 host에서 보낸 데이터가 완전히 그리고 정확하게 보내려 했던 host에 전달이 되었음이 보장되는 것이 중요하다. 만약 프로토콜이 이러한 서비스를 제공한다면 이를 두고 **reliable data transfer** 제공한다고 할 수 있다. 대표적으로 TCP가 이를 제공한다. 만약 Transfer Layer 프로토콜이 reliable data transfer를 제공하지 않을 수도 있는데 이 경우는 **loss-tolerant applications**에 많이 사용된다. 보통 이러한 application들로는 오디오 비디오 같은 multimedia application이 있다.</br>
 **Throughput**</br>
-프로세스간에 communication하는 과정에서 보낼 수 있는 비트의 비율을 available throughput이라 한다. 이러한 available throughput은 여러가지 session들이 같은 network path의 bandwidth를 공유하고 있기에 시시각각 변한다. 특정 application이 rbits/sec throughput을 보장받기를 원한다면 이를 transport 계층을 통해 해결할 수 있다. 이렇게 throughput을 보장받기를 원하는 application들을 **bandwidth-sensitive applications**라 한다. 여러 multimedia application들이 비디오나 오디오를 압축하는 기술을 사용하여 현재 가능한 throughput내에 맞추려고 함에도 불구하고, 많은 multimedia application들이 bandwidth에 민감하다. bandwidth에 sensitive한 application들과는 반대로 최대한 적은 throughput을 사용하려고 하는 **elastic application**도 존재한다.
-
+프로세스간에 communication하는 과정에서 보낼 수 있는 비트의 비율을 available throughput이라 한다. 이러한 available throughput은 여러가지 session들이 같은 network path의 bandwidth를 공유하고 있기에 시시각각 변한다. 특정 application이 rbits/sec throughput을 보장받기를 원한다면 이를 transport 계층을 통해 해결할 수 있다. 이렇게 throughput을 보장받기를 원하는 application들을 **bandwidth-sensitive applications**라 한다. 여러 multimedia application들이 비디오나 오디오를 압축하는 기술을 사용하여 현재 가능한 throughput내에 맞추려고 함에도 불구하고, 많은 multimedia application들이 bandwidth에 민감하다. bandwidth에 sensitive한 application들과는 반대로 최대한 적은 throughput을 사용하려고 하는 **elastic application**도 존재한다.</br>
+**Timing**</br>
+Transport Layer는 또한 timing을 보장하기도 한다. 예를 들어 전송자가 소켓을 통해 보낸 모든 비트들이 수신자 소켓에 100msc내에 전달되는 것등이 이에 해당한다. 리얼타임 채팅이나 게임의 경우 이러한 timing을 보장하는 것이 중요하다. 이와는 반대로 non-real-time application의 경우에는 이러한 tight한 timing constraint가 상대적으로 덜하다.</br>
+**Security**</br>
+Transport Layer에서는 security service까지 제공할 수 있다. 예를 들어 transport layer protocol이 데이터를 전송하는 프로세스에서 보내는 data를 모두 암호화하고 데이터를 받는 프로세스가 데이터를 받기전에 해당 데이터를 복호화할 수 있다.
 
 
 
