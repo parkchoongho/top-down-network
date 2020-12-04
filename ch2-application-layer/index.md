@@ -20,13 +20,3 @@ HTTP는 Application Layer에서의 protocol로써 기능한다. 서로 다른 ho
 Transport Layer는 또한 timing을 보장하기도 한다. 예를 들어 전송자가 소켓을 통해 보낸 모든 비트들이 수신자 소켓에 100msc내에 전달되는 것등이 이에 해당한다. 리얼타임 채팅이나 게임의 경우 이러한 timing을 보장하는 것이 중요하다. 이와는 반대로 non-real-time application의 경우에는 이러한 tight한 timing constraint가 상대적으로 덜하다.</br>
 **Security**</br>
 Transport Layer에서는 security service까지 제공할 수 있다. 예를 들어 transport layer protocol이 데이터를 전송하는 프로세스에서 보내는 data를 모두 암호화하고 데이터를 받는 프로세스가 데이터를 받기전에 해당 데이터를 복호화할 수 있다.
-
-
-
-
-
-
-
-
-
-
