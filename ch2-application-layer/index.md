@@ -1,6 +1,8 @@
 # 2.1 Principles of Network Applications
 ## Checkout
 ### 5개의 Internet Applications와 그들이 사용하는 Application-Layer Protocol을 나열하라.
+Facebook, Twitter, Gmail, Instagram, Netflix</br>
+HTTPS, HTTP, SMTP, FTP, TELNET
 ### 네트워크 아키텍쳐와 application 아키텍쳐의 차이점을 설명하라.
 네트워크 아케텍쳐는 어플리케이션에 특정한 서비스를 제공하게끔 디자인되어있다. 어플리케이션 아키텍쳐는 각각의 end system에서 각각의 어플리케이션이 어떻게 구성되어 있는지에 초점이 맞춰진다. 따라서 이 둘은 구분되서 설계되어야한다. (물론 내가 만들려는 어플리케이션의 구조에 따라 선택해야되는 네트워크 아케텍쳐가 있어 둘은 분리되지만 상호 연관이 되어있다고 할 수 있다.)
 ### 두 프로세스간의 communication 시각에서 보았을 때, 어떤 프로세스가 서버이고 어떤 프로세스가 클라이언트인가
@@ -20,3 +22,13 @@ HTTP는 Application Layer에서의 protocol로써 기능한다. 서로 다른 ho
 Transport Layer는 또한 timing을 보장하기도 한다. 예를 들어 전송자가 소켓을 통해 보낸 모든 비트들이 수신자 소켓에 100msc내에 전달되는 것등이 이에 해당한다. 리얼타임 채팅이나 게임의 경우 이러한 timing을 보장하는 것이 중요하다. 이와는 반대로 non-real-time application의 경우에는 이러한 tight한 timing constraint가 상대적으로 덜하다.</br>
 **Security**</br>
 Transport Layer에서는 security service까지 제공할 수 있다. 예를 들어 transport layer protocol이 데이터를 전송하는 프로세스에서 보내는 data를 모두 암호화하고 데이터를 받는 프로세스가 데이터를 받기전에 해당 데이터를 복호화할 수 있다.
+
+
+
+
+
+
+
+
+
+
