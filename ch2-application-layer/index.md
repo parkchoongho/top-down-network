@@ -14,13 +14,13 @@ Port 번호를 사용한다. 포트번호를 통해서 구별한다.
 ## HTTP가 가지는 network application에서의 역할은 무억인가? 그리고 web application을 완성시키기위해 필요한 다른 요소들에는 어떤 것들이 있나?
 HTTP는 Application Layer Protocol로 기능한다. 서로 다른 host system에 위치한 프로세스간 정보를 주고 받는 방법에는 소켓이 있다. 소켓이 메세지를 어떻게 구성하고  메세지 조각들 의미를 어떻게 할 것인지에 대한 약속이 결국 HTTP이다. Web application을 완성하기 위한 다른 요소들로는 Transport Layer, Network Layer, Physical Layer가 있다. Transport Layer에서 사용하는 프로토콜에는 대표적으로 TCP, UDP가 있고 Network Layer에는 IP, Physical Layer에는 ARP등이 존재한다.
 ## Transport Layer에서 큰 범위의 4가지 서비스 개념에는 어떤 것들이 있는가?
-###Reliable Data Transfer
+### Reliable Data Transfer
 전송된 패킷은 네트워크 상에서 유실될 위험을 안고  있다. 만약 카카오 뱅크에서 토스 계좌로 송금하는데 데이터가 유실되었다면?. 정말 끔찍한 일이 아닐 수 없다. 따라서 다른 host에서 보낸 데이터가 완전히 그리고 정확하게 보내려 했던 host에 전달됨을 보장해야 한다. 만약 프로토콜이 이러한 서비스를 제공한다면, **reliable data transfer**를 제공한다고 할 수 있다. 대표적으로 TCP가 이를 제공한다. 만약 Transfer Layer 프로토콜이 reliable data transfer를 제공하지 않는다면, 이 경우는 **loss-tolerant applications**에 많이 사용된다. 이러한 application들로는 오디오 비디오 같은 multimedia application등이 대표적이다.
-###Throughput
+### Throughput
 프로세스간에 communication하는 과정에서 보낼 수 있는 비트의 비율을 **available throughput**이라 한다. 이러한 available throughput은 여러가지 session들이 같은 network path상 bandwidth를 공유하고 있기에 시시각각 변한다. 특정 application이 r bits/sec throughput을 보장받기를 원한다면 이를 transport layer에서 해결할 수 있다. 이렇게 throughput을 보장받기를 원하는 application들을 **bandwidth-sensitive applications**라 한다. 여러 multimedia application들이 비디오나 오디오를 압축하는 기술을 사용하여 현재 가능한 throughput내에 맞추려고 함에도 불구하고, 많은 multimedia application들이 bandwidth에 민감하다. Bandwidth에 sensitive한 application들과는 반대로 최대한 적은 throughput을 사용하려고 하는 **elastic application**도 존재한다.
-###Timing
+### Timing
 Transport Layer는 또한 timing을 보장하기도 한다. 예를 들어 전송자가 소켓을 통해 보낸 모든 비트들이 수신자 소켓에 100msc내에 전달되는 것 등이 이에 해당한다. 리얼타임 채팅이나 게임의 경우 이러한 timing을 보장하는 것이 중요하다. 이와는 반대로 non-real-time application의 경우에는 이러한 tight한 timing constraint가 상대적으로 덜하다.
-###Security
+### Security
 Transport Layer에서는 security service까지 제공할 수 있다. 예를 들어 transport layer protocol이 데이터를 전송하는 프로세스에서 보내는 data를 모두 암호화하고 데이터를 받는 프로세스가 데이터를 받기전에 해당 데이터를 복호화할 수 있다.
 
 ## SSL은 Transport Layer, Application Layer 둘 중 어디서 작동하는가? 만약 개발자가 TCP를 SSL까지 확장하고 싶다면 어떤 조치를 취해야 하나
