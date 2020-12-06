@@ -24,4 +24,5 @@ Transport Layer는 또한 timing을 보장하기도 한다. 예를 들어 전송
 Transport Layer에서는 security service까지 제공할 수 있다. 예를 들어 transport layer protocol이 데이터를 전송하는 프로세스에서 보내는 data를 모두 암호화하고 데이터를 받는 프로세스가 데이터를 받기전에 해당 데이터를 복호화할 수 있다.
 
 ## SSL은 Transport Layer, Application Layer 둘 중 어디서 작동하는가? 만약 개발자가 TCP를 SSL까지 확장하고 싶다면 어떤 조치를 취해야 하나
+![ssl 과정](https://user-images.githubusercontent.com/34790763/101268034-6f82ba00-37a2-11eb-87ef-e365e34380b1.jpg)
 password와 같은 민감한 정보들을 암호화없이 그냥 보내게 된다면 스니핑과 같은 해킹에 무방비로 노출된다. 이러한 상황을 방지하고자 **SSL(Secure Sockets Layer)**라는 TCP 확장자가 개발되었다. **TCP-enhanced-SSL**은 원래 TCP 역할 뿐만 아니라 프로세스간 커뮤니케이션에서 필요한 여러 security service들을 제공한다(encryption, data integrity, end-point authentication). SSL은 Transport Layer Protocol가 아닌 TCP의 확장이다. (중요한건 SSL은 Transport Layer Protocol이 아니라는 사실 + Application Layer와 Transport Layer 사이를 잇는다.) SSL을 사용하고 싶으면 클라이언트와 서버 모두 SSL code를 포함해야한다. SSL은 TCP socket API와 유사한 자신만의 socket API를 가지고 있다. Application이 SSL을 사용하면, 전송 프로세스는 데이터를 SSL socket에 전송한다. SSL이 이 받은 데이터를 암호화하고 이를 TCP socket에 보낸다. 이 암호화된 데이터는 송신 프로세스의 TCP 프로세스에 가게되고 이를 다시 송신 프로세스의 SSL socket으로 보낸다. 여기서 복호화를 진행하고 이를 다시 송신 process로 보낸다.
